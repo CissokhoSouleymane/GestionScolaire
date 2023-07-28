@@ -37,7 +37,14 @@ Route::put('/cours/{id}', 'CoursController@update')->name('cours.update');
 //Route::get('/enseignants',[\App\Http\Controllers\EnseignantController::class,'index'])->name('enseignant.index');
 Route::get('/enseignants',[\App\Http\Controllers\EnseignantController::class,'index'])->name('enseignant.index');
 Route::post('/enseignant',[\App\Http\Controllers\EnseignantController::class,'store'])->name('enseignant.store');
+//Route::get('/enseignant',[\App\Http\Controllers\EnseignantController::class,'store'])->name('enseignant.store');
 Route::get('/enseignant/{id}/edit',[\App\Http\Controllers\EnseignantController::class, 'edit'])->name('enseignant.edit');
 Route::get('/enseignant/{id}/update',[\App\Http\Controllers\EnseignantController::class,'update'])->name('enseignant.update');
 Route::put('/enseignant/{id}/update',[\App\Http\Controllers\EnseignantController::class,'update'])->name('enseignant.update');
 Route::get('enseignant/{id}/delete',[\App\Http\Controllers\EnseignantController::class, 'delete'])->name('enseignant.delete');
+
+
+//Création d'en new route pour l'inscription
+Route::get('/enseigant_ins', function () {
+    return view('enseignants.inscription');
+});

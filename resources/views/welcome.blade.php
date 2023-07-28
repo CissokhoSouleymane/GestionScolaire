@@ -15,6 +15,5 @@
         <li>{{ $name }}</li>
     @endforeach
 </ul>
-
 </body>
 </html>
