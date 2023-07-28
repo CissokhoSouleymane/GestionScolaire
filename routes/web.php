@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {});
+Route::get('/', function () {
+    return view('welcome');
+    });
 
 Route::get('/profiles',[ProfileController::class,'index'])->name('profile.index');
 Route::post('/profile',[ProfileController::class,'store'])->name('profile.store');
