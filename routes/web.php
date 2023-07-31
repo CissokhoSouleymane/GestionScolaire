@@ -47,6 +47,6 @@ Route::get('enseignant/{id}/delete',[\App\Http\Controllers\EnseignantController:
 
 
 //Création d'en new route pour l'inscription
-Route::get('/enseigant_ins', function () {
+Route::get('/enseignant_ins', function () {
     return view('enseignants.inscription');
 });
