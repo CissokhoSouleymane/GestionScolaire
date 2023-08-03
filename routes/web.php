@@ -92,3 +92,15 @@ Route::get('/inscription/{id}/edit',[\App\Http\Controllers\InscriptionController
 Route::get('/inscription/{id}/update',[\App\Http\Controllers\InscriptionController::class,'update'])->name('inscription.update');
 Route::put('/inscription/{id}/update',[\App\Http\Controllers\InscriptionController::class,'update'])->name('inscription.update');
 Route::get('inscription/{id}/delete',[\App\Http\Controllers\InscriptionController::class, 'delete'])->name('inscription.delete');
+
+
+
+Route::get('/user_ins', function () {
+    return view('users.inscription');
+});
+Route::get('/users',[\App\Http\Controllers\UserController::class,'index'])->name('user.index');
+Route::post('/user',[\App\Http\Controllers\UserController::class,'store'])->name('user.store');
+Route::get('/user/{id}/edit',[\App\Http\Controllers\UserController::class, 'edit'])->name('user.edit');
+Route::get('/user/{id}/update',[\App\Http\Controllers\UserController::class,'update'])->name('user.update');
+Route::put('/user/{id}/update',[\App\Http\Controllers\UserController::class,'update'])->name('user.update');
+Route::get('user/{id}/delete',[\App\Http\Controllers\UserController::class, 'delete'])->name('user.delete');

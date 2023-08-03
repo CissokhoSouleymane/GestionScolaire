@@ -129,7 +129,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{route('inscription.index')}}">
                             <span data-feather="bar-chart-2" class="align-text-bottom"></span>
                             Inscription
                         </a>
@@ -142,7 +142,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{route('user.index')}}">
                             <span data-feather="layers" class="align-text-bottom"></span>
                             Utilisateurs
                         </a>
