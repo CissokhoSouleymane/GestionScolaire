@@ -79,3 +79,16 @@ Route::get('/classe/{id}/edit',[\App\Http\Controllers\ClasseController::class, '
 Route::get('/classe/{id}/update',[\App\Http\Controllers\ClasseController::class,'update'])->name('classe.update');
 Route::put('/classe/{id}/update',[\App\Http\Controllers\ClasseController::class,'update'])->name('classe.update');
 Route::get('classe/{id}/delete',[\App\Http\Controllers\ClasseController::class, 'delete'])->name('classe.delete');
+
+
+
+
+Route::get('/inscription_ins', function () {
+    return view('inscriptions.inscription');
+});
+Route::get('/inscriptions',[\App\Http\Controllers\InscriptionController::class,'index'])->name('inscription.index');
+Route::post('/inscription',[\App\Http\Controllers\InscriptionController::class,'store'])->name('inscription.store');
+Route::get('/inscription/{id}/edit',[\App\Http\Controllers\InscriptionController::class, 'edit'])->name('inscription.edit');
+Route::get('/inscription/{id}/update',[\App\Http\Controllers\InscriptionController::class,'update'])->name('inscription.update');
+Route::put('/inscription/{id}/update',[\App\Http\Controllers\InscriptionController::class,'update'])->name('inscription.update');
+Route::get('inscription/{id}/delete',[\App\Http\Controllers\InscriptionController::class, 'delete'])->name('inscription.delete');
