@@ -14,10 +14,14 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', function () {
+    return view('login');
+})->name('login');
+
+
+Route::get('/accueil', function () {
     return view('welcome');
-    });
+    })->name('accueil');
 
 Route::get('/profiles',[ProfileController::class,'index'])->name('profile.index');
 Route::post('/profile',[ProfileController::class,'store'])->name('profile.store');
@@ -50,3 +54,28 @@ Route::get('enseignant/{id}/delete',[\App\Http\Controllers\EnseignantController:
 Route::get('/enseignant_ins', function () {
     return view('enseignants.inscription');
 });
+
+
+//Matiere
+
+Route::get('/matiere_ins', function () {
+    return view('matieres.inscription');
+});
+Route::get('/matieres',[\App\Http\Controllers\MatiereController::class,'index'])->name('matiere.index');
+Route::post('/matiere',[\App\Http\Controllers\MatiereController::class,'store'])->name('matiere.store');
+Route::get('/matiere/{id}/edit',[\App\Http\Controllers\MatiereController::class, 'edit'])->name('matiere.edit');
+Route::get('/matiere/{id}/update',[\App\Http\Controllers\MatiereController::class,'update'])->name('matiere.update');
+Route::put('/matiere/{id}/update',[\App\Http\Controllers\MatiereController::class,'update'])->name('matiere.update');
+Route::get('matiere/{id}/delete',[\App\Http\Controllers\MatiereController::class, 'delete'])->name('matiere.delete');
+
+
+
+Route::get('/classe_ins', function () {
+    return view('classes.inscription');
+});
+Route::get('/classes',[\App\Http\Controllers\ClasseController::class,'index'])->name('classe.index');
+Route::post('/classe',[\App\Http\Controllers\ClasseController::class,'store'])->name('classe.store');
+Route::get('/classe/{id}/edit',[\App\Http\Controllers\ClasseController::class, 'edit'])->name('classe.edit');
+Route::get('/classe/{id}/update',[\App\Http\Controllers\ClasseController::class,'update'])->name('classe.update');
+Route::put('/classe/{id}/update',[\App\Http\Controllers\ClasseController::class,'update'])->name('classe.update');
+Route::get('classe/{id}/delete',[\App\Http\Controllers\ClasseController::class, 'delete'])->name('classe.delete');
