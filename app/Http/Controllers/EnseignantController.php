@@ -24,17 +24,18 @@ class EnseignantController extends Controller
         $enseignant->telephone = $request->telephone;
         $enseignant->adresse_email = $request->adresse_email;
         if ($enseignant->save()){
-            return redirect()->back();
+            // return redirect()->back();
+            return redirect()->route('enseignant.index');
         }
 
     }
 
     function edit($id){
 
-        return view('enseignants.index',
+        return view('enseignants.inscription',
             [
                 'enseignant'=>Enseignant::find($id),
-                'enseignants' =>Enseignant::all()
+                //'enseignants' =>Enseignant::all()
 
         ]);
     }

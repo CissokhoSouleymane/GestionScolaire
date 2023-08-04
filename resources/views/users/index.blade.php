@@ -4,9 +4,9 @@
 
     <div class="container">
         <h1 style="text-align: center;text-decoration: underline; color: blue" class="mt-3">
-            La liste des Enseignants :
+            La liste des Utilisateurs :
         </h1>
-        <a href="/enseignant_ins" class="btn btn-primary mt-3">Nouveau Enseignant</a>
+        <a href="/user_ins" class="btn btn-primary mt-3">Nouveau Utilisateur</a>
 
 
         <table style="" class="table table-striped table-hover mt-3">
@@ -15,27 +15,26 @@
                 <th>Id</th>
                 <th>Nom</th>
                 <th>Prénom</th>
-                <th>Telephone</th>
-                <th>Email</th>
+                <th>Loign</th>
+
                 <th>Action</th>
             </tr>
             </thead>
             <tbody>
-            @foreach($enseignants as $enseignant)
+            @foreach($users as $user)
                 <tr>
-                    <td>{{$enseignant->id}}</td>
-                    <td>{{$enseignant->nom}}</td>
-                    <td>{{$enseignant->prenom}}</td>
-                    <td>{{$enseignant->telephone}}</td>
-                    <td>{{$enseignant->adresse_email}}</td>
+                    <td>{{$user->id}}</td>
+                    <td>{{$user->nom}}</td>
+                    <td>{{$user->prenom}}</td>
+                    <td>{{$user->login}}</td>
                     <td>
                         <a
                             class="btn btn-primary"
-                            href="{{route('enseignant.edit',['id'=>$enseignant])}}">Modifier</a>
+                            href="{{route('user.edit',['id'=>$user])}}">Modifier</a>
 
                         <a
                             class="btn btn-danger"
-                            href="{{route('enseignant.delete',['id'=>$enseignant->id])}}"
+                            href="{{route('user.delete',['id'=>$user->id])}}"
                             onclick="return confirm('Voulez vous supprimer cet element ?')"
                         >
                             Supprimer
