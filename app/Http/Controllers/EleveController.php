@@ -29,12 +29,21 @@ class EleveController extends Controller
 
     }
 
-    function edit($id){
+    // function edit($id){
 
-        return view('eleves.inscription',
-            [
-                'eleves'=>Eleve::find($id),
-        ]);
+    //     return view('eleves.inscription',
+    //         [
+    //             'eleves'=>Eleve::find($id),
+    //     ]);
+    // }
+
+    public function edit($id)
+    {   
+        // Assuming you're using Eloquent to fetch the Eleve record by ID
+        $eleves = Eleve::find($id);
+
+        // Pass the $eleves variable to the view
+        return view('eleves.inscription', compact('eleves'));
     }
 
     function update(Request $request, $id){

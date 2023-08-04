@@ -94,7 +94,7 @@
     <input class="form-control form-control-dark w-100 rounded-0 border-0" type="text" placeholder="Search" aria-label="Search">
     <div class="navbar-nav">
         <div class="nav-item text-nowrap">
-            <a class="nav-link px-3" href="#">Sign out</a>
+            <a class="nav-link px-3" href="{{route('login')}}">Sign out</a>
         </div>
     </div>
 </header>
@@ -105,7 +105,7 @@
             <div class="position-sticky pt-3 sidebar-sticky">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">
+                        <a class="nav-link active" aria-current="page" href="{{route('accueil')}}">
                             <span data-feather="home" class="align-text-bottom"></span>
                             Accueil
                         </a>
@@ -135,20 +135,26 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{route('classe.index')}}">
+                            <span data-feather="users" class="align-text-bottom"></span>
+                            Classe
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('inscription.index')}}">
                             <span data-feather="bar-chart-2" class="align-text-bottom"></span>
                             Inscription
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{route('matiere.index')}}">
                             <span data-feather="layers" class="align-text-bottom"></span>
                             Matières
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{route('user.index')}}">
                             <span data-feather="layers" class="align-text-bottom"></span>
                             Utilisateurs
                         </a>
@@ -192,6 +198,7 @@
         </nav>
 
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <!-- yield signifie que cette partie du code sera dynamique , donc chaque classe fille doit l'implementer -->
             @yield('contenu')
 
         </main>
