@@ -8,60 +8,53 @@ use Illuminate\Http\Request;
 class CoursController extends Controller
 {
     //
-    function index(){
-//        echo 'Hello World';
+    function index()
+    {
         $cours = Cours::all();
-//        $profiles_non_consultant =
-//            $profiles->where('nom','!=', 'consultant');
-//        dd(
-//            $profiles_non_consultant,
-//            $profiles->count()
-//        );
 
         return view('cours.index', ['cours'=>$cours]);
     }
 
-    function  store(Request $request){
+    function  store(Request $request)
+    {
         $cours = new Cours();
+        
         $cours->nom = $request->nom;
-        $cours->date = $request->date;
-        $cours->heure   = $request->heure;
         $cours->duree = $request->duree;
         $cours->enseignants_id = $request->enseignants_id;
-        $cours->matiere_id = $request->matiere_id;
 
-        if ($cours->save()){
-            return redirect()->back();
+        if ($cours->save())
+        {
+            return redirect()->route('cours.index');
         }
     }
 
-    function delete($id){
-//        $profile = Profile::find($id);
-//        $profile->delete();
+    function delete($id)
+    {
         Cours::destroy($id);
         return redirect()->back();
     }
 
     function edit($id){
 
-        return view('cours.index',
+        return view('cours.FormulaireCours',
             [
-                'cours_edit'=>cours::find($id),
-                'cours_all' => cours::all()
+                'cours'=>Cours::find($id),
+                // 'cours_all' => cours::all()
             ]
         );
     }
 
-    function update(Request $request, $id){
-//        dd($request->all(),$id);
+    function update(Request $request, $id)
+    {
         $cours = Cours::find($id);
+
         $cours->nom = $request->nom;
-        $cours->date = $request->date;
-        $cours->heure = $request->heure;
         $cours->duree = $request->duree;
         $cours->enseignants_id = $request->enseignants_id;
-        $cours->matiere_id = $request->matiere_id;
-        if ($cours->save()){
+
+        if ($cours->save())
+        {
             return redirect()->route('cours.index');
         }
 

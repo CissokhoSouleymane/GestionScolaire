@@ -117,9 +117,21 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{asset(route('eleves.index'))}}">
                             <span data-feather="shopping-cart" class="align-text-bottom"></span>
-                            Elèves
+                            Élèves
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{asset(route('cours.index'))}}">
+                            <span data-feather="cours" class="align-text-bottom"></span>
+                            Cours
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{asset(route('notes.index'))}}">
+                            <span data-feather="users" class="align-text-bottom"></span>
+                            Notes
                         </a>
                     </li>
                     <li class="nav-item">
