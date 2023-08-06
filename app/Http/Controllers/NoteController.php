@@ -17,7 +17,7 @@ class NoteController extends Controller
     function  store(Request $request)
     {
         $note = new Note();
-        
+
         $note->eleves_id = $request->eleves_id;
         $note->matiere_id = $request->matiere_id;
         $note->valeur = $request->valeur;
@@ -38,8 +38,8 @@ class NoteController extends Controller
 
         return view('notes.FormulaireNote',
             [
-                'notes'=>Note::find($id),
-                
+                'note'=>Note::find($id),
+
             ]
         );
     }
@@ -58,4 +58,6 @@ class NoteController extends Controller
         }
 
     }
+
+
 }

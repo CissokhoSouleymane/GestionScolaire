@@ -24,7 +24,7 @@
 
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Nom </label>
-                        <input name="date" value="{{$matiere->date??''}}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="date">
+                        <input name="date" value="{{$inscription->date??''}}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="date">
                     </div>
 
                     <div class="mb-3">
