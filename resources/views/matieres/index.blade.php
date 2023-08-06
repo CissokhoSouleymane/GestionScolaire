@@ -23,19 +23,20 @@
             <tbody>
             @foreach($matieres as $matiere)
                 <tr>
-                    <td>{{$matiere->id}}</td>
-                    <td>{{$matiere->nom}}</td>
-                    <td>{{$matiere->coef}}</td>
-                    <td>{{$matiere->classes_id}}</td>
-                    <td>{{$matiere->enseignants_id}}</td>
+                    <td>{{$matiere['matiere']->id}}</td>
+                    <td>{{$matiere['matiere']->nom}}</td>
+                    <td>{{$matiere['matiere']->coef}}</td>
+                    <td>{{$matiere['classe_nom'] }}</td>
+                    <td>{{$matiere['enseignant_nom']}} {{$matiere['enseignant_prenom']}}</td>
+
                     <td>
                         <a
                             class="btn btn-primary"
-                            href="{{route('matiere.edit',['id'=>$matiere])}}">Modifier</a>
+                            href="{{route('matiere.edit',['id'=>$matiere['matiere']])}}">Modifier</a>
 
                         <a
                             class="btn btn-danger"
-                            href="{{route('matiere.delete',['id'=>$matiere->id])}}"
+                            href="{{route('matiere.delete',['id'=>$matiere['matiere']])}}"
                             onclick="return confirm('Voulez vous supprimer cet element ?')"
                         >
                             Supprimer

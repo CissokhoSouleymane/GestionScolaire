@@ -7,7 +7,7 @@
         <h1 style="text-align: center;text-decoration: underline; color: blue" class="mt-3">
             La liste des Inscription :
         </h1>
-        <a href="/inscription_ins" class="btn btn-primary mt-3">Nouvelle Inscription</a>
+        <a href="/inscription_ins" class="btn btn-primary mt-3">Inscription à une classe</a>
 
 
         <table style="" class="table table-striped table-hover mt-3">
@@ -17,6 +17,7 @@
                 <th>Date</th>
                 <th>Eleve</th>
                 <th>Classe</th>
+                <th>Action</th>
 
             </tr>
             </thead>

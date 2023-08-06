@@ -38,7 +38,7 @@ class InscriptionController extends Controller
             $classe = Classe::find($inscription->classes_id);
 
             // Vérifier si l'élève existe
-            if ($eleve || $classe) {
+            if ($eleve && $classe) {
                 // Ajouter une nouvelle entrée au tableau avec les informations d'inscription et le nom de l'élève
                 $inscriptionWithEleveName = [
                     'inscription' => $inscription,
