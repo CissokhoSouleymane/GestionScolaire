@@ -24,11 +24,12 @@
 
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Date </label>
-                        <input name="date" value="{{$inscription->date??''}}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="date">
+                        <input name="date" value="{{$inscription->date??''}}" type="date" class="form-control" id="exampleFormControlInput1" placeholder="date">
                     </div>
 
 
                     <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Nom de l'élève </label>
                         <select class="form-select" name="eleves_id" aria-label="Default select example" required>
                             @foreach($eleves as $eleve)
                                  <option  value="{{$eleve->id??''}}">{{$eleve->prenom}} {{$eleve->nom}}</option>
@@ -39,6 +40,7 @@
 
 
                     <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Choix de la classe </label>
                         <select class="form-select" name="classes_id" aria-label="Default select example" required>
                             @foreach($classes as $classe)
                                 <option  value="{{$classe->id??''}}">{{$classe->nom}}</option>

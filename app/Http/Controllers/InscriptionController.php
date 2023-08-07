@@ -6,23 +6,9 @@ use App\Models\Classe;
 use App\Models\Eleve;
 use App\Models\Inscription;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class InscriptionController extends Controller
 {
-    //
-
-    /*function index(){
-
-        $inscriptions = Inscription::all();
-        $id = $inscriptions->eleves_id;
-        $eleves = Eleve::where('id',$id)->first();
-       // $id = Inscription::find($eleves_id);
-
-
-        return view('inscriptions.index', ['inscriptions'=>$inscriptions,'eleves'=>$eleves]);
-    }
-    */
     function index() {
         // Récupérer toutes les inscriptions
         $inscriptions = Inscription::all();
@@ -64,19 +50,6 @@ class InscriptionController extends Controller
     }
 
 
-
-    /* function index()
-     {
-         $inscriptions = DB::table('inscriptions')
-             ->join('eleves', 'inscriptions.eleves_id', '=', 'eleves.id')
-             ->select('inscriptions.*', 'eleves.nom as eleve_nom')
-             ->get();
-
-         return view('inscriptions.index', ['inscriptions' => $inscriptions]);
-     }
-    */
-
-
     function getNameById($id=1){
 
         $eleves = Eleve::where('id',$id)->first();
@@ -96,8 +69,6 @@ class InscriptionController extends Controller
         $inscription->date = $request->date;
         $inscription->eleves_id = $request->eleves_id;
         $inscription->classes_id = $request->classes_id;
-
-       // $eleves = Eleve::all();
 
         if ($inscription->save()){
             // return redirect()->back();

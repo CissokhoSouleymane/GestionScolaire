@@ -24,22 +24,34 @@
 
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Nom </label>
-                        <input name="nom" value="{{$matiere->nom??''}}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nom de la matière">
+                        <input name="nom" value="{{$matiere->nom??''}}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nom de la matière" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Coef</label>
-                        <input name="coef" value="{{$matiere->coef??''}}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="coef">
+                        <input name="coef" value="{{$matiere->coef??''}}" type="mumber" class="form-control" id="exampleFormControlInput1" placeholder="coef" required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Classe</label>
-                        <input name="classes_id" value="{{$matiere->classes_id??''}}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="classe">
+                        <label for="exampleFormControlInput1" class="form-label">Choix de la classe</label>
+                        <select class="form-select" name="classes_id" aria-label="Default select example" required>
+                            @foreach($classes as $classe)
+                                 <option  value="{{$classe->id??''}}">
+                                    {{$classe->nom}}
+                                 </option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Enseignant</label>
-                        <input name="enseignants_id" value="{{$matiere->enseignants_id??''}}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nom de l'enseignant">
+                        <select class="form-select" name="enseignants_id" aria-label="Default select example" required>
+                            @foreach($enseignants as $enseignant)
+                                 <option  value="{{$enseignant->id??''}}">
+                                    {{$enseignant->prenom}} {{$enseignant->nom}}
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="mb-3">

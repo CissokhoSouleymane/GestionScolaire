@@ -66,8 +66,9 @@ class MatiereController extends Controller
 
         return view('matieres.inscription',
             [
-                'matiere'=>Matiere::find($id),
-                //'enseignants' =>Enseignant::all()
+                'matiere' => Matiere::find($id),
+                'enseignants' => Enseignant::all(),
+                'classes' => Classe::all(),
 
             ]);
     }
@@ -92,6 +93,17 @@ class MatiereController extends Controller
     }
 
 
+    // Addtitional functions
+    function getNameById($id=1){
 
+        $classe = Classe::where('id',$id)->first();
+        $enseignant = Enseignant::where('id', $id) -> first();
+    }
+
+    function inscription(){
+        $enseignants = Enseignant::all();
+        $classes =Classe::all();
+        return view('matieres.inscription',['enseignants'=>$enseignants,'classes'=>$classes]);
+    }
 
 }

@@ -5,6 +5,10 @@ use App\Http\Controllers\CoursController;
 use App\Http\Controllers\EleveController;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\EnseignantController;
+use App\Http\Controllers\MatiereController;
+use App\Http\Controllers\InscriptionController;
+use App\Http\Controllers\ClasseController;
+use App\Http\Controllers\UserController;
 
 
 use Illuminate\Support\Facades\Route;
@@ -40,8 +44,9 @@ use Illuminate\Support\Facades\Route;
     Route::get('/cours/{id}/update',[CoursController::class,'update'])->name('cours.update');
     Route::put('/cours/{id}/update',[CoursController::class,'update'])->name('cours.update');
     Route::get('cours/{id}/delete',[CoursController::class, 'delete'])->name('cours.delete');
+    Route::get('/nouveau_cours',[CoursController::class,'inscription']);
 
-    //Création d'une mouvelle route pour l'ajout d'un nouveau cours
+    //Création d'une nouvelle route pour l'ajout d'un nouveau cours
     Route::get('/nouveau_cours', function () {
         return view('cours.FormulaireCours');
     });
@@ -83,79 +88,69 @@ use Illuminate\Support\Facades\Route;
     Route::get('enseignant/{id}/delete',[EnseignantController::class, 'delete'])->name('enseignant.delete');
 
 
-    //Création d'une mouvelle route pour l'inscription
+    //Création d'une mouvelle route pour l'ajout d'un nouvel enseignant
         Route::get('/enseignant_ins', function () {
             return view('enseignants.inscription');
         });
-Route::get('/', function () {
-    return view('login');
-})->name('login');
+ 
+// Route pour le login
+    Route::get('/', function () {
+        return view('login');
+    })->name('login');
 
-
-Route::get('/accueil', function () {
+// Route de la page d'accueil
+    Route::get('/accueil', function () {
     return view('welcome');
     })->name('accueil');
 
 
 
-//Création d'en new route pour l'inscription
-Route::get('/enseignant_ins', function () {
-    return view('enseignants.inscription');
-});
 
 
-//Matiere
+// Routes de la Matiere
+    Route::get('/matiere_ins', function () {
+        return view('matieres.inscription');
+    });
+    Route::get('/matieres',[MatiereController::class,'index'])->name('matiere.index');
+    Route::post('/matiere',[MatiereController::class,'store'])->name('matiere.store');
+    Route::get('/matiere/{id}/edit',[MatiereController::class, 'edit'])->name('matiere.edit');
+    Route::get('/matiere/{id}/update',[MatiereController::class,'update'])->name('matiere.update');
+    Route::put('/matiere/{id}/update',[MatiereController::class,'update'])->name('matiere.update');
+    Route::get('matiere/{id}/delete',[MatiereController::class, 'delete'])->name('matiere.delete');
 
-Route::get('/matiere_ins', function () {
-    return view('matieres.inscription');
-});
-Route::get('/matieres',[\App\Http\Controllers\MatiereController::class,'index'])->name('matiere.index');
-Route::post('/matiere',[\App\Http\Controllers\MatiereController::class,'store'])->name('matiere.store');
-Route::get('/matiere/{id}/edit',[\App\Http\Controllers\MatiereController::class, 'edit'])->name('matiere.edit');
-Route::get('/matiere/{id}/update',[\App\Http\Controllers\MatiereController::class,'update'])->name('matiere.update');
-Route::put('/matiere/{id}/update',[\App\Http\Controllers\MatiereController::class,'update'])->name('matiere.update');
-Route::get('matiere/{id}/delete',[\App\Http\Controllers\MatiereController::class, 'delete'])->name('matiere.delete');
-
-
-
-Route::get('/classe_ins', function () {
-    return view('classes.inscription');
-});
-Route::get('/classes',[\App\Http\Controllers\ClasseController::class,'index'])->name('classe.index');
-Route::post('/classe',[\App\Http\Controllers\ClasseController::class,'store'])->name('classe.store');
-Route::get('/classe/{id}/edit',[\App\Http\Controllers\ClasseController::class, 'edit'])->name('classe.edit');
-Route::get('/classe/{id}/update',[\App\Http\Controllers\ClasseController::class,'update'])->name('classe.update');
-Route::put('/classe/{id}/update',[\App\Http\Controllers\ClasseController::class,'update'])->name('classe.update');
-Route::get('classe/{id}/delete',[\App\Http\Controllers\ClasseController::class, 'delete'])->name('classe.delete');
+    Route::get('/matiere_ins',[MatiereController::class,'inscription']);
 
 
+// Routes de la classe
+    Route::get('/classe_ins', function () {
+        return view('classes.inscription');
+    });
+    Route::get('/classes',[ClasseController::class,'index'])->name('classe.index');
+    Route::post('/classe',[ClasseController::class,'store'])->name('classe.store');
+    Route::get('/classe/{id}/edit',[ClasseController::class, 'edit'])->name('classe.edit');
+    Route::get('/classe/{id}/update',[ClasseController::class,'update'])->name('classe.update');
+    Route::put('/classe/{id}/update',[ClasseController::class,'update'])->name('classe.update');
+    Route::get('classe/{id}/delete',[ClasseController::class, 'delete'])->name('classe.delete');
 
+// Routes de l'inscription
+    Route::get('/inscription_ins',[InscriptionController::class,'inscription']);
 
-//Route::get('/inscription_ins', function () {
-  //  return view('inscriptions.inscription');
-//});
+    Route::get('/inscriptions',[InscriptionController::class,'index'])->name('inscription.index');
+    Route::post('/inscription',[InscriptionController::class,'store'])->name('inscription.store');
+    Route::get('/inscription/{id}/edit',[InscriptionController::class, 'edit'])->name('inscription.edit');
+    Route::get('/inscription/{id}/update',[InscriptionController::class,'update'])->name('inscription.update');
+    Route::put('/inscription/{id}/update',[InscriptionController::class,'update'])->name('inscription.update');
+    Route::get('inscription/{id}/delete',[InscriptionController::class, 'delete'])->name('inscription.delete');
+    //test
+    Route::get('/test',[InscriptionController::class,'getNameById'])->name('inscription.test');
 
-Route::get('/inscription_ins',[\App\Http\Controllers\InscriptionController::class,'inscription']);
-
-Route::get('/inscriptions',[\App\Http\Controllers\InscriptionController::class,'index'])->name('inscription.index');
-Route::post('/inscription',[\App\Http\Controllers\InscriptionController::class,'store'])->name('inscription.store');
-Route::get('/inscription/{id}/edit',[\App\Http\Controllers\InscriptionController::class, 'edit'])->name('inscription.edit');
-Route::get('/inscription/{id}/update',[\App\Http\Controllers\InscriptionController::class,'update'])->name('inscription.update');
-Route::put('/inscription/{id}/update',[\App\Http\Controllers\InscriptionController::class,'update'])->name('inscription.update');
-Route::get('inscription/{id}/delete',[\App\Http\Controllers\InscriptionController::class, 'delete'])->name('inscription.delete');
-//test
-Route::get('/test',[\App\Http\Controllers\InscriptionController::class,'getNameById'])->name('inscription.test');
-
-
-
-
-
-Route::get('/user_ins', function () {
-    return view('users.inscription');
-});
-Route::get('/users',[\App\Http\Controllers\UserController::class,'index'])->name('user.index');
-Route::post('/user',[\App\Http\Controllers\UserController::class,'store'])->name('user.store');
-Route::get('/user/{id}/edit',[\App\Http\Controllers\UserController::class, 'edit'])->name('user.edit');
-Route::get('/user/{id}/update',[\App\Http\Controllers\UserController::class,'update'])->name('user.update');
-Route::put('/user/{id}/update',[\App\Http\Controllers\UserController::class,'update'])->name('user.update');
-Route::get('user/{id}/delete',[\App\Http\Controllers\UserController::class, 'delete'])->name('user.delete');
+// Routes de l'utilisateur
+    Route::get('/user_ins', function () {
+        return view('users.inscription');
+    });
+    Route::get('/users',[UserController::class,'index'])->name('user.index');
+    Route::post('/user',[UserController::class,'store'])->name('user.store');
+    Route::get('/user/{id}/edit',[UserController::class, 'edit'])->name('user.edit');
+    Route::get('/user/{id}/update',[UserController::class,'update'])->name('user.update');
+    Route::put('/user/{id}/update',[UserController::class,'update'])->name('user.update');
+    Route::get('user/{id}/delete',[UserController::class, 'delete'])->name('user.delete');

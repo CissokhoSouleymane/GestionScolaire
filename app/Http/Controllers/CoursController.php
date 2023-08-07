@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cours;
+use App\Models\Enseignant;
 use Illuminate\Http\Request;
 
 class CoursController extends Controller
@@ -11,8 +12,24 @@ class CoursController extends Controller
     function index()
     {
         $cours = Cours::all();
+        $inscripitionsWithEnseignantName = [];
 
-        return view('cours.index', ['cours'=>$cours]);
+        foreach ($cours as $cour) {
+            $enseignants = Enseignant::find($cour->enseignants_id);
+
+            if ($enseignants) 
+            {
+                $inscriptionWithEnseignantName = [
+                    'cour' => $cour,
+                    'enseignant_nom' => $enseignants->nom,
+                    'enseignant_prenom' => $enseignants -> prenom,
+                ];
+
+                $inscripitionsWithEnseignantName[] = $inscriptionWithEnseignantName;
+            }
+        }
+
+        return view('cours.index', ['cours' => $inscripitionsWithEnseignantName]);
     }
 
     function  store(Request $request)
@@ -40,7 +57,7 @@ class CoursController extends Controller
         return view('cours.FormulaireCours',
             [
                 'cours'=>Cours::find($id),
-                // 'cours_all' => cours::all()
+                'enseignants' => Enseignant::all(),
             ]
         );
     }
@@ -58,5 +75,12 @@ class CoursController extends Controller
             return redirect()->route('cours.index');
         }
 
+    }
+
+// Additional functions
+    function inscription()
+    {
+        $enseignants = Enseignant::all();
+        return view('cours.FormulaireCours',['enseignants'=>$enseignants]);
     }
 }

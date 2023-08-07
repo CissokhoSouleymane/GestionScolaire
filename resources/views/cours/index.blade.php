@@ -15,28 +15,28 @@
                     <th>Id</th>
                     <th>Nom</th>
                     <th>Durée</th>
-                    <th>Identifiant de l'enseignant</th>
+                    <th>Nom de l'enseignant</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
             @foreach($cours as $cour)
                 <tr>
-                    <td>{{$cour->id}}</td>
-                    <td>{{$cour->nom}}</td>
-                    <td>{{$cour->duree}}</td>
-                    <td>{{$cour->enseignants_id}}</td>
+                    <td>{{$cour['cour']->id}}</td>
+                    <td>{{$cour['cour']->nom}}</td>
+                    <td>{{$cour['cour']->duree}}</td>
+                    <td>{{$cour['enseignant_prenom']}} {{$cour['enseignant_nom']}}</td>
                     <td>
                         <a
                             class="btn btn-primary"
-                            href="{{route('cours.edit',['id'=>$cour])}}"
+                            href="{{route('cours.edit',['id'=>$cour['cour']])}}"
                         >
                             Modifier
                         </a>
 
                         <a
                             class="btn btn-danger"
-                            href="{{route('cours.delete',['id'=>$cour->id])}}"
+                            href="{{route('cours.delete',['id'=>$cour['cour']])}}"
                             onclick="return confirm('Voulez vous supprimer cet element ?')"
                         >
                             Supprimer
