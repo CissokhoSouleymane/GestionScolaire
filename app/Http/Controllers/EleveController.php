@@ -43,7 +43,7 @@ class EleveController extends Controller
         $eleves = Eleve::find($id);
 
         // Pass the $eleves variable to the view
-        return view('eleves.inscription', compact('eleves'));
+        return view('eleves.FormulaireEleve', compact('eleves'));
     }
 
     function update(Request $request, $id){
@@ -53,7 +53,7 @@ class EleveController extends Controller
         $eleve->prenom = $request->prenom;
         $eleve->date_naissance = $request->date_naissance;
         $eleve->adresse = $request->adresse;
-        $eleve->nivau_scolaire = $request->niveau_scolaire;
+        $eleve->niveau_scolaire = $request->niveau_scolaire;
 
         if ($eleve->save()){
             return redirect()->route('eleves.index');

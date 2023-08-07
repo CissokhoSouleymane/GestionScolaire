@@ -38,8 +38,7 @@ class NoteController extends Controller
 
         return view('notes.FormulaireNote',
             [
-                'notes'=>Note::find($id),
-                
+                'note'=>Note::find($id)
             ]
         );
     }

@@ -28,23 +28,23 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Nom de l'élève</label>
-                        <input name="nom" value="{{$eleves->nom??''}}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nom de l'élève">
+                        <label for="exampleFormControlInput2" class="form-label">Nom de l'élève</label>
+                        <input name="nom" value="{{$eleves->nom??''}}" type="text" class="form-control" id="exampleFormControlInput2" placeholder="Nom de l'élève">
                     </div>
 
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Date de naissance</label>
-                        <input name="date_naissance" value="{{$eleves->date_naissance??''}}" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Date de naissance">
+                        <label for="exampleFormControlInput3" class="form-label">Date de naissance</label>
+                        <input name="date_naissance" value="{{$eleves->date_naissance??''}}" type="date" class="form-control" id="exampleFormControlInput3" placeholder="Date de naissance">
                     </div>
 
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">adresse</label>
-                        <input name="adresse" value="{{$eleves->adresse??''}}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Adresse">
+                        <label for="exampleFormControlInput3" class="form-label">adresse</label>
+                        <input name="adresse" value="{{$eleves->adresse??''}}" type="text" class="form-control" id="exampleFormControlInput3" placeholder="Adresse">
                     </div>
 
                     <div class="mb-3">
+                        <label for="exampleFormControlInput4" class="form-label">Niveau Scolaire</label>
                         <select class="form-select" name="niveau_scolaire" aria-label="Default select example" required>
-                            <option value="Niveau scolaire">Niveau Scolaire</option>
                             <option value="primaire">Primaire</option>
                             <option value="secondaire" >Secondaire</option>
                             <option value="superieur">Supérieur</option>

@@ -14,7 +14,9 @@
                 <tr>
                     <th>Id</th>
                     <th>ID de l'élève</th>
+                    <th>Nom de l'élève</th>
                     <th>ID de la matière</th>
+                    <th>Nom de la matière</th>
                     <th>Valeur de la note</th>
                     <th>Action</th>
                 </tr>
