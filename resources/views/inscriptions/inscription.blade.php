@@ -27,14 +27,23 @@
                         <input name="date" value="{{$inscription->date??''}}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="date">
                     </div>
 
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Eleve</label>
-                        <input name="eleves_id" value="{{$inscription->eleves_id??''}}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="nom">
-                    </div>
 
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Classe</label>
-                        <input name="classes_id" value="{{$inscription->classes_id??''}}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="classe">
+                        <select class="form-select" name="eleves_id" aria-label="Default select example" required>
+                            @foreach($eleves as $eleve)
+                                 <option  value="{{$eleve->id??''}}">{{$eleve->prenom}} {{$eleve->nom}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+
+
+                    <div class="mb-3">
+                        <select class="form-select" name="classes_id" aria-label="Default select example" required>
+                            @foreach($classes as $classe)
+                                <option  value="{{$classe->id??''}}">{{$classe->nom}}</option>
+                            @endforeach
+                        </select>
                     </div>
 
 

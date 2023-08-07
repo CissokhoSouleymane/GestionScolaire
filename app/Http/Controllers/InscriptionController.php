@@ -97,6 +97,8 @@ class InscriptionController extends Controller
         $inscription->eleves_id = $request->eleves_id;
         $inscription->classes_id = $request->classes_id;
 
+       // $eleves = Eleve::all();
+
         if ($inscription->save()){
             // return redirect()->back();
             return redirect()->route('inscription.index');
@@ -111,6 +113,9 @@ class InscriptionController extends Controller
                 'inscription'=>Inscription::find($id),
                 //'enseignants' =>Enseignant::all()
 
+                'eleves' => Eleve::all(),
+                'classes'=>Classe::all(),
+
             ]);
     }
 
@@ -120,7 +125,7 @@ class InscriptionController extends Controller
         $inscription->date = $request->date;
         $inscription->eleves_id = $request->eleves_id;
         $inscription->classes_id = $request->classes_id;
-
+        //test();
 
         if ($inscription->save()){
             return redirect()->route('inscription.index');
@@ -131,6 +136,12 @@ class InscriptionController extends Controller
     function delete($id){
         Inscription::destroy($id);
         return redirect()->back();
+    }
+
+    function inscription(){
+        $eleves = Eleve::all();
+        $classes =Classe::all();
+        return view('inscriptions.inscription',['eleves'=>$eleves,'classes'=>$classes]);
     }
 
 

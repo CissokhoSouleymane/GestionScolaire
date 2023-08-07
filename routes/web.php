@@ -131,9 +131,12 @@ Route::get('classe/{id}/delete',[\App\Http\Controllers\ClasseController::class, 
 
 
 
-Route::get('/inscription_ins', function () {
-    return view('inscriptions.inscription');
-});
+//Route::get('/inscription_ins', function () {
+  //  return view('inscriptions.inscription');
+//});
+
+Route::get('/inscription_ins',[\App\Http\Controllers\InscriptionController::class,'inscription']);
+
 Route::get('/inscriptions',[\App\Http\Controllers\InscriptionController::class,'index'])->name('inscription.index');
 Route::post('/inscription',[\App\Http\Controllers\InscriptionController::class,'store'])->name('inscription.store');
 Route::get('/inscription/{id}/edit',[\App\Http\Controllers\InscriptionController::class, 'edit'])->name('inscription.edit');
