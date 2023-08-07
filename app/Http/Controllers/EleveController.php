@@ -38,11 +38,12 @@ class EleveController extends Controller
     // }
 
     public function edit($id)
-    {   
+    {
         // Assuming you're using Eloquent to fetch the Eleve record by ID
         $eleves = Eleve::find($id);
 
         // Pass the $eleves variable to the view
+        //return view('eleves.inscription', compact('eleves'));
         return view('eleves.FormulaireEleve', compact('eleves'));
     }
 

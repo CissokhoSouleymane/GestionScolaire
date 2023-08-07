@@ -12,7 +12,7 @@
         </a>
         <div class="card">
             <h5 class="card-header bg-primary text-white">
-                {{isset($matiere)? 'Formulaire de Modification Matiere' : "Formulaire d'inscription Matieres"}}
+                {{isset($matiere)? 'Modification de la Matière' : "Formulaire d'inscription Matieres"}}
             </h5>
             <div class="card-body">
                 <form action="{{isset($matiere)? route('matiere.update',['id'=>$matiere->id]) : route('matiere.store')}}"
@@ -24,7 +24,7 @@
 
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Nom </label>
-                        <input name="nom" value="{{$matiere->nom??''}}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nom">
+                        <input name="nom" value="{{$matiere->nom??''}}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nom de la matière">
                     </div>
 
                     <div class="mb-3">
@@ -34,12 +34,12 @@
 
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Classe</label>
-                        <input name="classes_id" value="{{$matiere->classes_id??''}}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Téléphone">
+                        <input name="classes_id" value="{{$matiere->classes_id??''}}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="classe">
                     </div>
 
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">enseignaants_id</label>
-                        <input name="enseignants_id" value="{{$matiere->enseignants_id??''}}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Email">
+                        <label for="exampleFormControlInput1" class="form-label">Enseignant</label>
+                        <input name="enseignants_id" value="{{$matiere->enseignants_id??''}}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nom de l'enseignant">
                     </div>
 
                     <div class="mb-3">

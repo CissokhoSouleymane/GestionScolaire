@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Classe;
+use App\Models\Enseignant;
 use Illuminate\Http\Request;
 use App\Models\Matiere;
 
@@ -14,7 +16,36 @@ class MatiereController extends Controller
 
         $matieres = Matiere::all();
 
-        return view('matieres.index', ['matieres'=>$matieres]);
+
+        // Créer un tableau pour stocker les inscriptions avec le nom de l'élève associé
+        $matieresWithEleveName = [];
+
+        // Parcourir les inscriptions pour récupérer le nom de l'élève associé
+        foreach ($matieres as $matiere) {
+            // Récupérer l'élève associé à l'inscription
+            $enseignant = Enseignant::find($matiere->enseignants_id);
+            $classe = Classe::find($matiere->classes_id);
+
+            // Vérifier si l'élève existe
+            if ($enseignant && $classe) {
+                // Ajouter une nouvelle entrée au tableau avec les informations d'inscription et le nom de l'élève
+                $matiereWithEleveName = [
+                    'matiere' => $matiere,
+                    'enseignant_nom' => $enseignant->nom, // Remplacez 'nom' par la colonne qui contient le nom de l'élève
+                    'enseignant_prenom' =>$enseignant->prenom,
+                    'classe_nom'=>$classe->nom,
+
+                ];
+
+
+
+                // Ajouter l'entrée au tableau des inscriptions avec le nom de l'élève
+                $matieresWithEleveName[] = $matiereWithEleveName;
+
+            }
+        }
+
+        return view('matieres.index', ['matieres' => $matieresWithEleveName]);
     }
 
     function store(Request $request){

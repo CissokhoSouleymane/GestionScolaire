@@ -55,7 +55,7 @@ use Illuminate\Support\Facades\Route;
     Route::get('eleves/{id}/delete',[EleveController::class, 'delete'])->name('eleves.delete');
 
     //Création d'une mouvelle route pour l'ajout d'un nouvel élève
-        Route::get('/nouvel_eleve', function () 
+        Route::get('/nouvel_eleve', function ()
         {
             return view('eleves.FormulaireEleve');
         });
@@ -69,7 +69,7 @@ use Illuminate\Support\Facades\Route;
     Route::get('notes/{id}/delete',[NoteController::class, 'delete'])->name('notes.delete');
 
     //Création d'une mouvelle route pour l'ajout d'une nouvelle note
-    Route::get('/nouvelle_note', function () 
+    Route::get('/nouvelle_note', function ()
     {
         return view('notes.FormulaireNote');
     });
@@ -131,15 +131,22 @@ Route::get('classe/{id}/delete',[\App\Http\Controllers\ClasseController::class, 
 
 
 
-Route::get('/inscription_ins', function () {
-    return view('inscriptions.inscription');
-});
+//Route::get('/inscription_ins', function () {
+  //  return view('inscriptions.inscription');
+//});
+
+Route::get('/inscription_ins',[\App\Http\Controllers\InscriptionController::class,'inscription']);
+
 Route::get('/inscriptions',[\App\Http\Controllers\InscriptionController::class,'index'])->name('inscription.index');
 Route::post('/inscription',[\App\Http\Controllers\InscriptionController::class,'store'])->name('inscription.store');
 Route::get('/inscription/{id}/edit',[\App\Http\Controllers\InscriptionController::class, 'edit'])->name('inscription.edit');
 Route::get('/inscription/{id}/update',[\App\Http\Controllers\InscriptionController::class,'update'])->name('inscription.update');
 Route::put('/inscription/{id}/update',[\App\Http\Controllers\InscriptionController::class,'update'])->name('inscription.update');
 Route::get('inscription/{id}/delete',[\App\Http\Controllers\InscriptionController::class, 'delete'])->name('inscription.delete');
+//test
+Route::get('/test',[\App\Http\Controllers\InscriptionController::class,'getNameById'])->name('inscription.test');
+
+
 
 
 
