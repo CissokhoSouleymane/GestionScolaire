@@ -47,9 +47,9 @@ use Illuminate\Support\Facades\Route;
     Route::get('/nouveau_cours',[CoursController::class,'inscription']);
 
     //Création d'une nouvelle route pour l'ajout d'un nouveau cours
-    Route::get('/nouveau_cours', function () {
-        return view('cours.FormulaireCours');
-    });
+   // Route::get('/nouveau_cours', function () {
+     //   return view('cours.FormulaireCours');
+   // });
 
 // Routes de l'élẽve
     Route::get('eleves',[EleveController::class,'index'])->name('eleves.index');
@@ -92,7 +92,7 @@ use Illuminate\Support\Facades\Route;
         Route::get('/enseignant_ins', function () {
             return view('enseignants.inscription');
         });
- 
+
 // Route pour le login
     Route::get('/', function () {
         return view('login');
