@@ -10,7 +10,7 @@
         <a href="/inscription_ins" class="btn btn-primary mt-3">Inscription à une classe</a>
 
 
-        <table style="" class="table table-striped table-hover mt-3">
+        <table class="table table-striped table-hover mt-3">
             <thead>
             <tr>
                 <th>Id</th>
@@ -32,7 +32,10 @@
                     <td>
                         <a
                             class="btn btn-primary"
-                            href="{{route('inscription.edit',['id'=>$inscription['inscription']])}}">Modifier</a>
+                            href="{{route('inscription.edit',['id'=>$inscription['inscription']])}}"
+                        >
+                            Modifier
+                        </a>
 
                         <a
                             class="btn btn-danger"

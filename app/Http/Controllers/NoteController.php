@@ -4,14 +4,38 @@ namespace App\Http\Controllers;
 
 use App\Models\Note;
 use Illuminate\Http\Request;
+use App\Models\Eleve;
+use App\Models\Matiere;
 
 class NoteController extends Controller
 {
     function index()
     {
-        $note = Note::all();
+        $notes = Note::all();
 
-        return view('notes.index', ['notes'=>$note]);
+        $inscriptionsWithEleveName = [];
+
+        foreach($notes as $note)
+        {
+            $eleve = Eleve::find($note->eleves_id);
+            $matiere = Matiere::find($note->matiere_id);
+
+            if($eleve && $matiere)
+            {
+                $inscriptionWithEleveName = 
+                [
+                    'note' => $note,
+                    'eleve_nom' => $eleve->nom,
+                    'eleve_prenom' =>$eleve->prenom,
+                    'matiere_nom'=>$matiere->nom,
+                ];
+
+                $inscriptionsWithEleveName[] = $inscriptionWithEleveName;
+            }
+        } 
+
+        return view('notes.index', ['notes' => $inscriptionsWithEleveName]);
+
     }
 
     function  store(Request $request)
@@ -39,7 +63,8 @@ class NoteController extends Controller
         return view('notes.FormulaireNote',
             [
                 'note'=>Note::find($id),
-
+                'eleves' => Eleve::all(),
+                'matiere'=>Matiere::all(),
             ]
         );
     }
@@ -59,5 +84,12 @@ class NoteController extends Controller
 
     }
 
+    // Additional functions
+        function inscription()
+        {
+            $eleves = Eleve::all();
+            $matieres =Matiere::all();
+            return view('notes.FormulaireNote',['eleves'=>$eleves,'matieres'=>$matieres]);
+        }
 
 }

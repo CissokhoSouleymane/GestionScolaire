@@ -23,13 +23,21 @@
                     @endif
 
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">ID de l'élève</label>
-                        <input name="eleves_id" value="{{$note->eleves_id??''}}" type="number" class="form-control" id="exampleFormControlInput1" placeholder="Id de l'élève">
+                        <label for="exampleFormControlInput1" class="form-label">Choix de l'élève</label>
+                        <select class="form-select" name="eleves_id" aria-label="Default select example" required>
+                            @foreach($eleves as $eleve)
+                                 <option  value="{{$eleve->id??''}}">{{$eleve->prenom}} {{$eleve->nom}}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">ID de la matière</label>
-                        <input name="matiere_id" value="{{$note->matiere_id??''}}" type="number" class="form-control" id="exampleFormControlInput1" placeholder="ID de la matière">
+                        <label for="exampleFormControlInput1" class="form-label">choix de la matière</label>
+                        <select class="form-select" name="matiere_id" aria-label="Default select example" required>
+                            @foreach($matieres as $matiere)
+                                 <option  value="{{$matiere->id??''}}">{{$matiere->prenom}} {{$matiere->nom}}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="mb-3">

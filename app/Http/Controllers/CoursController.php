@@ -81,6 +81,7 @@ class CoursController extends Controller
     function inscription()
     {
         $enseignants = Enseignant::all();
-        return view('cours.FormulaireCours',['enseignants'=>$enseignants]);
+        // return view('cours.FormulaireCours',['enseignants'=>$enseignants]);
+        return view('cours.FormulaireCours', ['enseignants' => $enseignants]);
     }
 }

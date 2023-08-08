@@ -13,9 +13,7 @@
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>ID de l'élève</th>
                     <th>Nom de l'élève</th>
-                    <th>ID de la matière</th>
                     <th>Nom de la matière</th>
                     <th>Valeur de la note</th>
                     <th>Action</th>
@@ -24,21 +22,21 @@
             <tbody>
             @foreach($notes as $note)
                 <tr>
-                    <td>{{$note->id}}</td>
-                    <td>{{$note->eleves_id}}</td>
-                    <td>{{$note->matiere_id}}</td>
-                    <td>{{$note->valeur}}</td>
+                    <td>{{$note['note']->id}}</td>
+                    <td>{{$note['eleve_prenom']}} {{$note['eleve_nom']}}</td>
+                    <td>{{$note['matiere_nom']}}</td>
+                    <td>{{$note['note']->valeur}}</td>
                     <td>
                         <a
                             class="btn btn-primary"
-                            href="{{route('notes.edit',['id'=>$note])}}"
+                            href="{{route('notes.edit',['id'=>$note['note']])}}"
                         >
                             Modifier
                         </a>
 
                         <a
                             class="btn btn-danger"
-                            href="{{route('notes.delete',['id'=>$note->id])}}"
+                            href="{{route('notes.delete',['id'=>$note['note']])}}"
                             onclick="return confirm('Voulez vous supprimer cet element ?')"
                         >
                             Supprimer

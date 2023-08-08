@@ -26,12 +26,12 @@ class InscriptionController extends Controller
             // Vérifier si l'élève existe
             if ($eleve && $classe) {
                 // Ajouter une nouvelle entrée au tableau avec les informations d'inscription et le nom de l'élève
-                $inscriptionWithEleveName = [
+                $inscriptionWithEleveName = 
+                [
                     'inscription' => $inscription,
-                    'eleve_nom' => $eleve->nom, // Remplacez 'nom' par la colonne qui contient le nom de l'élève
+                    'eleve_nom' => $eleve->nom,
                     'eleve_prenom' =>$eleve->prenom,
                     'classe_nom'=>$classe->nom,
-
                 ];
 
 

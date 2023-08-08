@@ -47,9 +47,9 @@ use Illuminate\Support\Facades\Route;
     Route::get('/nouveau_cours',[CoursController::class,'inscription']);
 
     //Création d'une nouvelle route pour l'ajout d'un nouveau cours
-    Route::get('/nouveau_cours', function () {
-        return view('cours.FormulaireCours');
-    });
+    // Route::get('/nouveau_cours', function () {
+    //     return view('cours.FormulaireCours');
+    // });
 
 // Routes de l'élẽve
     Route::get('eleves',[EleveController::class,'index'])->name('eleves.index');
@@ -74,10 +74,10 @@ use Illuminate\Support\Facades\Route;
     Route::get('notes/{id}/delete',[NoteController::class, 'delete'])->name('notes.delete');
 
     //Création d'une mouvelle route pour l'ajout d'une nouvelle note
-    Route::get('/nouvelle_note', function ()
-    {
-        return view('notes.FormulaireNote');
-    });
+    Route::get('/nouvelle_note',
+    [
+        NoteController::class, 'inscription'
+    ]);
 
 // Routes de l'enseignant
     Route::get('/enseignants',[EnseignantController::class,'index'])->name('enseignant.index');
@@ -94,14 +94,14 @@ use Illuminate\Support\Facades\Route;
         });
  
 // Route pour le login
-    Route::get('/', function () {
-        return view('login');
-    })->name('login');
+    // Route::get('/', function () {
+    //     return view('login');
+    // })->name('login');
 
 // Route de la page d'accueil
-    Route::get('/accueil', function () {
-    return view('welcome');
-    })->name('accueil');
+    // Route::get('/accueil', function () {
+    // return view('welcome');
+    // })->name('accueil');
 
 
 

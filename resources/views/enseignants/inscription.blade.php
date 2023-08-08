@@ -5,14 +5,14 @@
     <div class="container">
 
         <h1 style="text-align: center;text-decoration: underline; color: blue" class="mt-3">
-            {{isset($enseignant)? "Modification d'un  Enseignant" : "Création d'un nouveau Enseigant"}}
+            {{isset($enseignant)? "Modification données Enseignant" : "Création d'un nouvel Enseignant"}}
         </h1>
         <a href="{{route('enseignant.index')}}" class="btn btn-danger mb-3">
             Retour
         </a>
         <div class="card">
             <h5 class="card-header bg-primary text-white">
-                {{isset($enseignant)? 'Formulaire de Modification Enseignant' : "Formulaire d'inscription Enseigants"}}
+                {{isset($enseignant)? 'Formulaire de Modification Enseignant' : "Formulaire d'inscription Enseignants"}}
             </h5>
             <div class="card-body">
                 <form action="{{isset($enseignant)? route('enseignant.update',['id'=>$enseignant->id]) : route('enseignant.store')}}"
